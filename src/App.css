@@ -1,38 +1,29 @@
-.App {
-  text-align: center;
+@font-face {
+  font-family: 'Test';
+  src: url('./Fonts/Font.eot');
+  src: url('./Fonts/Font.eot?#iefix') format('embedded-opentype'),
+      url('./Fonts/Font.woff2') format('woff2'),
+      url('./Fonts/Font.woff') format('woff'),
+      url('./Fonts/Font.ttf') format('truetype'),
+      url('./Fonts/Font.svg#Font') format('svg');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Font';
+  src: url('./Fonts/Font_1.eot');
+  src: url('./Fonts/Font_1.eot?#iefix') format('embedded-opentype'),
+      url('./Fonts/Font_1.woff2') format('woff2'),
+      url('./Fonts/Font_1.woff') format('woff'),
+      url('./Fonts/Font_1.ttf') format('truetype'),
+      url('./Fonts/Font_1.svg#Font') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+body {
+  font-family: 'Font';
+  margin: 0px;
 }

@@ -1,0 +1,465 @@
+header {
+    height: 52px;
+    padding: 8px calc((100vw - 1225px)/2);
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    color: #757575;
+    flex-wrap: wrap;
+    border-bottom: 1px solid #F2F2F2;
+    background-color: white;
+  }
+  
+  header > img {
+    object-fit: contain;
+    width: 73px;
+    height: 32px;
+    margin-right: 35px;
+  }
+  
+  .search {
+    height: 100%;
+    display: flex;
+    background-color:#F2F2F2;
+    border-radius: 5px;
+    margin-right: 45px;
+  }
+  
+  .categsearch {
+    display: flex;
+    align-items: center;
+    border-right: 1px solid #B8B8B8;
+  }
+  
+  .categsearch > span {
+    margin-right: 5px;
+    margin-left: 10px;
+    font-size: 14px;
+  }
+  
+  .sort-down, .sort-down2 {
+    margin-bottom: 8px;
+    margin-right: 15px;
+  }
+  
+  .article-search {
+    width: 600px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .magnifying-class {
+    margin-left: 15px;
+    color: #999999;
+    font-size: 14px;
+    margin-right: 5px;
+  }
+  
+  #article-name-search {
+    border: none;
+    font-size: 16px;
+    background-color: inherit;
+    color: #898989;
+    width: 100%;
+    height: 100%;
+  }
+  
+  #article-name-search:focus{
+    outline: none;
+  }
+  
+  *:focus {
+    outline: none;
+  }
+  
+  .xmark {
+    color: #818383;
+    font-size: 20px;
+    margin-right: 10px;
+  }
+  
+  .inscr-connect, .disconnect {
+    width: 150px;
+    height: 28px;
+    background-color: white;
+    color: #007782;
+    border: 1px solid #007782;
+    border-radius: 5px;
+    font-size: 12px;
+    margin-right: 8px;
+    z-index: 3;
+  }
+  
+  .sell-now {
+    width: 120px;
+    height: 28px;
+    background-color: #017580;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 12px;
+    margin-right: 10px;
+    z-index: 3;
+  }
+  
+  .question {
+    border-radius: 50%;
+    border: 2px solid #999999;
+    background-color: white;
+    color: #999999;
+    height: 20px;
+    width: 20px;
+    display: flex;
+    justify-content: center;
+    margin-right: 20px;
+    z-index: 3;
+  }
+  
+  .language {
+    display: flex;
+    align-items: center;
+    z-index: 3;
+  }
+  
+  .language > span {
+    margin-right: 8px;
+    height: 100%;
+    font-size: 14px;
+  }
+  
+  .sort-down2 {
+    margin-right: 0px;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    right: 0;
+    background-image: url(../../Content/white-overlay.svg);
+    background-position: bottom -1px right -1px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 405px;
+    z-index: 2;
+    width: 60%;
+  }
+
+#my-modal {
+  position: fixed;
+  padding:0;
+  margin:0;
+  top:0;
+  left:0;
+  width: 100%;
+  height: 100%;
+  background-color: #898989;
+  z-index: 4;
+  opacity: 0.67;
+  overflow-y: hidden;
+}
+
+.tryConLogIn, .trySignUp {
+  background-color: white;
+  width: 375px;
+  border-radius: 5px;
+  position: fixed;
+  z-index: 5;
+  opacity: unset;
+  top: max(calc(50vh - 420px/2), 15px);
+  left: calc(50vw - 375px/2);
+  box-sizing: border-box;;
+}
+
+.tryConLogIn {
+  height: min(420px, 100vh - 30px);
+}
+
+.trySignUp {
+  height: calc(100vh - 30px);
+  top: 15px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  padding: 0px 20px;
+  height: calc(100% - 10px);
+  align-items: center;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.content::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.content {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.Vinted:hover, .inscr-connect:hover, .sell-now:hover, .categsearch:hover, .question:hover, .language:hover {
+  cursor: pointer;
+}
+
+.close {
+  display: flex;
+  justify-content: end;
+  margin-bottom: 25px;
+  height: 60px;
+  align-items: center;
+  position: absolute;
+  width: calc(100%);
+  box-sizing: border-box;
+  z-index: 7;
+  padding: 10px;
+}
+
+.close-button {
+  z-index: 5;
+}
+
+.modal-xmark {
+  font-size: 30px;
+  z-index: 7;
+  position: sticky;
+}
+
+.close-button:hover {
+  cursor: pointer;
+}
+
+.join {
+  font-size: 24px;
+  line-height: 32px;
+  color: #171717;
+  text-align: center;
+  margin-bottom: 30px;
+  margin-top: 50px;
+  height: 100px;
+}
+
+.click-on {
+  border: 1px black solid;
+  border-radius: 5px;
+  width: 100%;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #171717;
+  height: 45px;
+}
+
+.company-logo {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  object-fit: contain;
+  margin: 10px 10px 10px 0px
+}
+
+.click-on:hover {
+  cursor: pointer;
+  background-color: rgb(245, 242, 242);
+}
+
+.last {
+  margin-top: 15px;
+}
+
+.action {
+  display: flex;
+  justify-content: center;
+  font-size: 16px;
+  line-height: 22px;
+  color: #4D4D4D;
+  margin-bottom: 10px;
+  height: 20px;
+}
+
+.blue-action {
+  margin-left: 5px;
+  color: #007782;
+}
+
+.blue-action:hover {
+  cursor: pointer;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  padding: 0px 20px;
+  height: calc(100% - 10px);
+  align-items: center;
+}
+
+.content-sign-up {
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  padding: 0px 20px;
+  height: calc(100% - 60px);
+  align-items: center;
+  margin-top: 60px;
+  border: 1px red;
+  width: calc(100% - 20px * 2);
+}
+
+.inscription {
+  color: black;
+  font-size: 24px;
+  margin-bottom: 40px;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.content-sign-up::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.content-sign-up {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.login-input, .login-field {
+  width: 100%;
+  height: 30px;
+  font-size: 16px;
+  border: none;
+  border-bottom: 1px lightgrey solid;
+  color: #171717;
+  margin-bottom: 5px;
+}
+
+.login-input::placeholder, .login-field::placeholder {
+  color: #898989;
+}
+
+.login-field {
+  margin-bottom: 30px;
+}
+
+.input-desc-grey, .input-desc-red {
+  font-size: 12px;
+  width: 100%;
+  margin-bottom: 35px;
+}
+
+.input-desc-red {
+  color: red;
+}
+
+.fullpassword {
+  width: 100%;
+  position: relative;
+}
+
+.eye-slash, .eye {
+  position: absolute;
+  right: 0px;
+  top: 10px;
+}
+
+.condition-news, .condition-tcs {
+  width: 100%;
+  display: flex;
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.condition-news {
+  height: 20px;
+}
+
+.condition-tcs {
+  height: 80px;
+}
+
+.condition-text {
+  width: calc(100% - 20px - 5px);
+  padding-top: 2px;
+}
+
+.tickedbox, .emptybox {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+  position: relative;
+  background: #017580;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 50%;
+  border-radius: 2px;
+  border: 1px solid #017580;
+}
+
+.emptybox {
+  background-color: white;
+}
+
+.tick {
+  color: white;
+}
+
+.condition-grey, .condition-blue, .condition-blue-end, .condition-blue-pass {
+  margin-right: 4px;
+}
+
+.condition-blue, .condition-blue-end, .condition-blue-pass {
+  color: #017580;
+}
+
+.condition-blue:hover, .condition-blue-end:hover, .condition-blue-pass:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.continue, .continue-login {
+  width: 100%;
+  background-color: #017580;
+  border: none;
+  margin-top: 20px;
+  border-radius: 5px;
+  display: block;
+  padding: 11px 0px;
+  color: white;
+  font-size: 16px;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+.continue-login {
+  margin-top: 10px;
+}
+
+.condition-blue-end {
+  margin-bottom: 30px;
+}
+
+.condition-blue-pass {
+  margin-bottom: 15px;
+}
+
+.disconnect {
+  background-color: #C2175B;
+  border: 1px solid #C2175B;
+  color: white;
+}
+
+.false-login {
+  color: red;
+  margin-bottom: 15px;
+  font-size: 14px;
+  font-style: italic;
+}
