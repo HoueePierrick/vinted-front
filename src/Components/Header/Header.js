@@ -3,6 +3,7 @@ import './Header.css';
 import {useState, useEffect} from "react";
 import axios from "axios";
 import Cookies from 'js-cookie';
+import { Link } from 'react-router-dom';
 
 const CheckSpecialChar = (str, array) => {
     let result = false;
@@ -396,7 +397,7 @@ const Header = (props) => {
 
     return (
         <header>
-            <img src={require("../../Content/Vinted_logo.png")} alt="Vinted's logo" className='Vinted'/>
+            <Link to="/" className='Vinted'><img src={require("../../Content/Vinted_logo.png")} alt="Vinted's logo"/></Link>
             <div className="search">
                 <div className="categsearch">
                     <span>Articles</span>

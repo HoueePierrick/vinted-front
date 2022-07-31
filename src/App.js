@@ -32,8 +32,8 @@ function App() {
     <>Votre site est en cours de chargement</>
     :
     <>
-    <Header tryConLogIn={tryConLogIn} setTryConLogIn={setTryConLogIn}></Header>
     <Router>
+      <Header tryConLogIn={tryConLogIn} setTryConLogIn={setTryConLogIn}></Header>
       <Routes>
         <Route path='/' element={<Home data={data}/>}></Route>
         <Route path="/offer/:id" element={<Offer data={data} setData={setData} isLoading={isLoading} setIsLoading={setIsLoading}></Offer>}></Route>

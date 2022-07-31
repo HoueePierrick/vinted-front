@@ -16,13 +16,13 @@ body {
 .product-carroussel {
     width: 600px;
     height: 500px;
-    border: 1px blue solid;
 }
 
 .product-pic {
-    height: 50px;
+    height: 500px;
+    /* width: 600px; */
     width: 100%;
-    border: 1px green solid;
+    object-fit: cover;
 }
 
 .offerfulldesc {

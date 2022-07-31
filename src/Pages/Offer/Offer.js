@@ -10,15 +10,15 @@ const responsive = {
     superLargeDesktop: {
       // the naming can be any, depends on you.
       breakpoint: { max: 4000, min: 3000 },
-      items: 5
+      items: 1
     },
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
-      items: 3
+      items: 1
     },
     tablet: {
       breakpoint: { max: 1024, min: 464 },
-      items: 2
+      items: 1
     },
     mobile: {
       breakpoint: { max: 464, min: 0 },
@@ -64,6 +64,7 @@ const OfferPics = (array) => {
         responsive={responsive}
         ssr={true} // means to render carousel on server-side.
         infinite={true}
+        slidesToSlide={1}
         // autoPlay={this.props.deviceType !== "mobile" ? true : false}
         autoPlaySpeed={1000}
         keyBoardControl={true}
@@ -75,7 +76,7 @@ const OfferPics = (array) => {
         dotListClass="custom-dot-list-style"
         itemClass="carousel-item-padding-40-px">
             {array.map((elem, index) => {
-                return <img src={elem.secure_url} alt="offer pictures" className="product-pic"></img>
+                return <img src={elem.secure_url} alt="offer pictures" className="product-pic" key={index}></img>
             })}
         </Carousel>)
 }

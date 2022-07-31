@@ -202,6 +202,13 @@ header {
   scrollbar-width: none;  /* Firefox */
 }
 
+.Vinted {
+  height: 25px;
+  width: 70px;
+  display: flex;
+  margin-right: 40px;
+}
+
 .Vinted:hover, .inscr-connect:hover, .sell-now:hover, .categsearch:hover, .question:hover, .language:hover {
   cursor: pointer;
 }
