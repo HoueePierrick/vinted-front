@@ -67,7 +67,7 @@ const OffersDisplay = (array) => {
 const Home = (props) => {
     const offers = props.data.offers;
     return (
-        <>
+        <div className="home">
             <div className='hero-overlay'></div>
             <div className="banner-container">
                 <img src={require("../../Content/banner.jpg")} alt="Smiling woman in dressroom" className="banner"/>
@@ -80,7 +80,7 @@ const Home = (props) => {
             <div className="offer-list">
                 {OffersDisplay(offers)};
             </div>
-        </>
+        </div>
     )
 } 
 

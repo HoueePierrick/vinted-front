@@ -398,28 +398,32 @@ const Header = (props) => {
     return (
         <header>
             <Link to="/" className='Vinted'><img src={require("../../Content/Vinted_logo.png")} alt="Vinted's logo"/></Link>
-            <div className="search">
-                <div className="categsearch">
-                    <span>Articles</span>
-                    <FontAwesomeIcon icon="sort-down" className='sort-down'></FontAwesomeIcon>
+            <div className='rest-header'>
+                <div className="search">
+                    <div className="categsearch">
+                        <span>Articles</span>
+                        <FontAwesomeIcon icon="sort-down" className='sort-down'></FontAwesomeIcon>
+                    </div>
+                    <div className='article-search'>
+                        <FontAwesomeIcon icon="magnifying-glass" className='magnifying-class'></FontAwesomeIcon>
+                        <input type="text" id="article-name-search" placeholder='Rechercher des articles' />
+                        <FontAwesomeIcon icon="xmark" className='xmark'></FontAwesomeIcon>
+                    </div>
                 </div>
-                <div className='article-search'>
-                    <FontAwesomeIcon icon="magnifying-glass" className='magnifying-class'></FontAwesomeIcon>
-                    <input type="text" id="article-name-search" placeholder='Rechercher des articles' />
-                    <FontAwesomeIcon icon="xmark" className='xmark'></FontAwesomeIcon>
+                <div className='sec-contain'>
+                    {
+                        !token ? 
+                        <button className='inscr-connect' onClick={() => {setTryConLogIn(1)}}>S'inscrire | Se connecter</button> 
+                        :
+                        <button className='disconnect' onClick={() => {Cookies.remove("token"); setToken(null)}}>Se déconnecter</button> 
+                    }
+                    <button className='sell-now'>Vends maintenant</button>
+                    <button className='question'><span>?</span></button>
+                    <div className='language'>
+                        <span>FR</span>
+                        <FontAwesomeIcon icon="sort-down" className='sort-down2'></FontAwesomeIcon>
+                    </div>
                 </div>
-            </div>
-            {
-                !token ? 
-                <button className='inscr-connect' onClick={() => {setTryConLogIn(1)}}>S'inscrire | Se connecter</button> 
-                :
-                <button className='disconnect' onClick={() => {Cookies.remove("token"); setToken(null)}}>Se déconnecter</button> 
-            }
-            <button className='sell-now'>Vends maintenant</button>
-            <button className='question'><span>?</span></button>
-            <div className='language'>
-                <span>FR</span>
-                <FontAwesomeIcon icon="sort-down" className='sort-down2'></FontAwesomeIcon>
             </div>
             {ConOrLogIn(tryConLogIn, setTryConLogIn, name, setName, email, setEmail, password, setPassword, visible, setVisible, oldName, setOldName, oldEmail, setOldEmail, oldPassword, setOldPassword, newsletter, setNewsletter, tcs, setTcs, token, setToken, loginMail, setLoginMail, loginPass, setLoginPass, failedLog, setFailedLog)}
         </header>

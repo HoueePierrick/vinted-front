@@ -2,27 +2,39 @@ header {
     height: 52px;
     padding: 8px calc((100vw - 1225px)/2);
     display: flex;
-    align-items: center;
+    /* align-items: center; */
     box-sizing: border-box;
     color: #757575;
     flex-wrap: wrap;
     border-bottom: 1px solid #F2F2F2;
     background-color: white;
+    width: 100vw;
+    position: fixed;
+    z-index: 10;
+    top: 0px;
+    padding: 0px 20px;
   }
   
-  header > img {
-    object-fit: contain;
-    width: 73px;
-    height: 32px;
-    margin-right: 35px;
+  .rest-header {
+    width: calc(100% - 115px);
+    height: 52px;
+    display: flex;
+    align-items: center;
   }
-  
+
   .search {
-    height: 100%;
+    height: calc(100% - 20px);
     display: flex;
     background-color:#F2F2F2;
     border-radius: 5px;
     margin-right: 45px;
+    width: calc(100% - 320px);
+  }
+
+  .sec-contain {
+    width: 360px;
+    display: flex;
+    align-items: center;
   }
   
   .categsearch {
@@ -43,7 +55,7 @@ header {
   }
   
   .article-search {
-    width: 600px;
+    width: 100%;
     display: flex;
     align-items: center;
   }
@@ -207,6 +219,7 @@ header {
   width: 70px;
   display: flex;
   margin-right: 40px;
+  margin-top: 8px;
 }
 
 .Vinted:hover, .inscr-connect:hover, .sell-now:hover, .categsearch:hover, .question:hover, .language:hover {
@@ -469,4 +482,70 @@ header {
   margin-bottom: 15px;
   font-size: 14px;
   font-style: italic;
+}
+
+@media (max-width: 900px) {
+  header {
+    height: 84px;
+  }
+  
+  .Vinted {
+    position: absolute;
+  }
+
+  .rest-header {
+    flex-wrap: wrap;
+    flex-direction: column-reverse;
+    justify-content: flex-end;
+    height: 100%;
+    align-items: flex-end;
+  }
+
+  .search {
+    margin-top: 8px;
+    width: 100%;
+    height: 30px;
+  }
+
+  .sec-contain {
+    margin-top: 10px;
+    margin-left: 80px;
+    /* width: 100%; */
+  }
+  
+}
+
+@media (max-width: 500px) {
+  header {
+    width: 100%;
+    padding-right: 30px;
+    box-sizing: border-box;
+    height: 100px;
+  }
+  .rest-header {
+    align-items: flex-start;
+    justify-content: start;
+    width: 100%;
+  }
+  /* .rest-header {
+    width: 100%;
+    align-items: flex-start;
+    justify-content: start;
+  }
+  .sec-contain {
+    flex-wrap: wrap;
+    width: 100%;
+    margin-left: 0px;
+    margin-top: 40px;
+    height: 30px;
+    margin-bottom: 10px;
+  } */
+  .inscr-connect, .disconnect {
+    height: 40px;
+    width: 90px;
+  }
+  .sell-now {
+    height: 40px;
+    width: 70px;
+  }
 }

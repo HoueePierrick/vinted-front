@@ -34,6 +34,7 @@ function App() {
     <>
     <Router>
       <Header tryConLogIn={tryConLogIn} setTryConLogIn={setTryConLogIn}></Header>
+      <div className='head-placeholder'></div>
       <Routes>
         <Route path='/' element={<Home data={data}/>}></Route>
         <Route path="/offer/:id" element={<Offer data={data} setData={setData} isLoading={isLoading} setIsLoading={setIsLoading}></Offer>}></Route>

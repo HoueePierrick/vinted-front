@@ -7,14 +7,14 @@ body {
   } */
 
 .fulloffer {
-    width: 1225px;
+    width: calc(100% - 40px);
     display: flex;
     justify-content: space-between;
-    margin: 30px calc((100vw - 1225px)/2);
+    margin: 30px 20px;
 }
 
 .product-carroussel {
-    width: 600px;
+    width: min(60%, 600px);
     height: 500px;
 }
 
@@ -26,9 +26,9 @@ body {
 }
 
 .offerfulldesc {
-    width: 400px;
+    width: min(40%, 400px);
     background-color: white;
-    padding: 30px;
+    padding: 20px 30px;
     box-sizing: border-box;
     display: flex;
     flex-wrap: wrap;
@@ -44,7 +44,7 @@ body {
     width: 100%;
     display: flex;
     justify-content: space-between;
-    margin-bottom: 40px;
+    margin-bottom: 10px;
 }
 
 .keys {
@@ -59,6 +59,7 @@ body {
 .keys > span {
     width: 100%;
     margin-bottom: 6px;
+    height: 30px;
 }
 
 .values {
@@ -72,13 +73,14 @@ body {
 .values > span {
     width: 100%;
     margin-bottom: 6px;
+    height: 30px;
 }
 
 .divider {
     width: 100%;
     height: 1px;
     background-color: #C9C9C9;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
 }
 
 .offer-title {
@@ -117,4 +119,17 @@ body {
     height: 40px;
     color: white;
     font-size: 16px;
+}
+
+@media (max-width: 700px) {
+    .fulloffer {
+        flex-wrap: wrap;
+    }
+    .product-carroussel {
+        width: min(100%, 600px);
+        height: 400px;
+    }
+    .offerfulldesc {
+        width: 100%;
+    }
 }

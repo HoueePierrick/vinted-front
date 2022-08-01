@@ -26,4 +26,10 @@
 body {
   font-family: 'Font';
   margin: 0px;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+.head-placeholder {
+  height: 52px;
 }
