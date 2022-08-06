@@ -109,7 +109,7 @@ const DetailOffer = (array) => {
 }
 
 const Offer = (props) => {
-    const {data, setData, setIsLoading, rank, min, max, pageNum, pageLen} = props
+    const {data, setData, setIsLoading} = props
     useEffect(() => {
         const fetchdata = async () => {
           try {
