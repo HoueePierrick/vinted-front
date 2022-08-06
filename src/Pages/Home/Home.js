@@ -120,21 +120,22 @@ const Home = (props) => {
     const [pagMax, setPagMax] = useState(0);
     const [pagTot, setPagTot] = useState(0);
     const [totOff, setTotOff] = useState(0);
-    let seepages = [];
-    let pagescount = 1;
+    // let seepages = [];
+    // let pagescount = 1;
 
     useEffect(() => {
         let totaloffers = initial.offers;
-        let offercount =  OffCounter(totaloffers);
-        setTotOff(offercount)
+        // let offercount =  OffCounter(totaloffers);
+        setTotOff(OffCounter(totaloffers))
         if(pageLen) {
-            pagescount = Math.ceil(offercount / pageLen)
+            // pagescount = Math.ceil(OffCounter(totaloffers) / pageLen)
+            setPagTot(Math.ceil(OffCounter(totaloffers) / pageLen))
         } else {
-            pagescount = 1
+            // pagescount = 1;
+            setPagTot(1);
         }
-        setPagTot(pagescount)
-        seepages = PagesTab(pageNum, pagescount, setPagMin, setPagMax)
-        setNumOffers([seepages]);
+        // seepages = PagesTab(pageNum, pagescount, setPagMin, setPagMax);
+        setNumOffers([PagesTab(pageNum, pagTot, setPagMin, setPagMax)]);
     }, [pageLen, pageNum])
 
     return (
