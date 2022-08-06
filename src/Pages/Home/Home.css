@@ -60,7 +60,6 @@
 
 .offer-list {
     width: 100%;
-    margin: 30px 0px;
     display: flex;
     flex-wrap: wrap;
 }
@@ -75,9 +74,9 @@
     text-decoration: none;
 }
 
-.single-offer:nth-child(5n) {
+/* .single-offer:nth-child(5n) {
     margin-right: 0px;
-}
+} */
 
 .offer-user {
     box-sizing: border-box;
@@ -88,15 +87,17 @@
     align-items: center;
 }
 
-.account-avatar, .empty-avatar {
+.account-avatar, .empty-small-avatar {
     width: 25px;
     height: 25px;
-    object-fit:cover;
+    object-fit: cover;
     border-radius: 50%;
     margin-right: 8px;
+    box-sizing: border-box;
+    display: block;
 }
 
-.empty-avatar {
+.empty-small-avatar {
     background-color: #017580;
 }
 
@@ -139,6 +140,80 @@
     width: 16px;
 }
 
+.full-page-list {
+    width: calc(100% - 40px);
+    display: flex;
+    justify-content: center;
+    color:#007782;
+    margin-top: 10px;
+    align-items: center;
+}
+
+.full-page-list > span {
+    height: 100%;
+    box-sizing: border-box;
+    margin-right: 10px;
+    padding-top: 2px;
+}
+
+.full-page-list > span:hover {
+    cursor: pointer;
+}
+
+/* .full-page-list > span:first-child {
+    margin-right: 10px;
+} */
+
+.page-list {
+    display: flex;
+    margin-right: 10px;
+}
+  
+.current-page, .other-pages {
+    margin-right: 10px;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    padding-top: 2px;
+    box-sizing: border-box;
+}
+
+.other-pages:hover {
+    cursor: pointer;
+}
+
+.current-page:last-child, .other-pages:last-child {
+    margin-right: 0px;
+}
+
+.current-page {
+    background-color: rgb(199, 241, 241);
+}
+
+.chevron {
+    margin-top: 1px;
+}
+
+.chevron:first-child {
+    margin-right: 10px;
+}
+
+.chevron:hover {
+    cursor: pointer;
+}
+
+.select {
+    border: none;
+    background-color: inherit;
+    color: inherit;
+    font-size: inherit;
+    height: 100%;
+    margin-left: 10px;
+}
+
+.select:hover {
+    cursor: pointer;
+}
 
 @media (max-width: 900px) {
     .home {
@@ -146,6 +221,13 @@
     }
     .hero-overlay {
         display: none;
+    }
+    .full-page-list {
+        font-size: 14px;
+    }
+    .page-list {
+        width: 250px;
+        margin-left: 1px;
     }
 }
 
@@ -165,5 +247,28 @@
     }
     .question {
         margin-right: 10px;
+    }
+    .full-page-list {
+        font-size: 12px;
+    }
+    .current-page, .other-pages {
+        margin-right: 0px;
+        margin-left: 0px;
+    }
+    .chevron {
+        margin-right: 1px;
+        margin-left: 0px;
+        padding-bottom: 2px;
+    }
+    .full-page-list > span {
+        margin-right: 1px;
+        margin-left: 0px;
+    }
+    .page-list {
+        width: 150px;
+        margin-left: 1px;
+    }
+    .select {
+        margin-left: 1px;
     }
 }

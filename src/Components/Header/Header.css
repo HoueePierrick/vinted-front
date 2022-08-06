@@ -1,8 +1,7 @@
 header {
-    height: 52px;
+    height: 92px;
     padding: 8px calc((100vw - 1225px)/2);
     display: flex;
-    /* align-items: center; */
     box-sizing: border-box;
     color: #757575;
     flex-wrap: wrap;
@@ -145,7 +144,7 @@ header {
 
   .hero-overlay {
     position: absolute;
-    top: 0;
+    top: 40px;
     bottom: 0;
     left: 50%;
     right: 0;
@@ -484,9 +483,59 @@ header {
   font-style: italic;
 }
 
+.filter {
+  background-color: white;
+  height: 40px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  color: #000000;
+}
+
+.up-cran, .down-cran {
+  position: relative;
+  margin-left: 10px;
+  margin-right: 25px;
+}
+
+.blue-cran {
+  width: 44px;
+  height: 20px;
+  background-color: #2DB0BA;
+  border-radius: 20px;
+}
+
+.cran-up, .cran-down {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  border: 1px black solid;
+  position: absolute;
+  top: 0px;
+  box-sizing: border-box;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cran-down {
+  right: 0px;
+}
+
+.price-filter {
+  width: 50px;
+  margin-right: 10px;
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+}
+
 @media (max-width: 900px) {
   header {
-    height: 84px;
+    height: 124px;
   }
   
   .Vinted {
@@ -510,7 +559,12 @@ header {
   .sec-contain {
     margin-top: 10px;
     margin-left: 80px;
-    /* width: 100%; */
+  }
+
+  .filter {
+    width: 100%;
+    position: relative;
+    bottom: 40px;
   }
   
 }
@@ -520,26 +574,20 @@ header {
     width: 100%;
     padding-right: 30px;
     box-sizing: border-box;
-    height: 100px;
+    height: 140px;
   }
   .rest-header {
     align-items: flex-start;
     justify-content: start;
     width: 100%;
   }
-  /* .rest-header {
-    width: 100%;
-    align-items: flex-start;
-    justify-content: start;
+  .filter > span {
+    width: 50px;
   }
-  .sec-contain {
-    flex-wrap: wrap;
-    width: 100%;
-    margin-left: 0px;
-    margin-top: 40px;
-    height: 30px;
-    margin-bottom: 10px;
-  } */
+  .up-cran, .down-cran {
+    margin-left: 8px;
+    margin-right: 8px;
+  }
   .inscr-connect, .disconnect {
     height: 40px;
     width: 90px;
@@ -547,5 +595,8 @@ header {
   .sell-now {
     height: 40px;
     width: 70px;
+  }
+  .price-filter {
+    width: 30px;
   }
 }

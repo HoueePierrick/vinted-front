@@ -4,6 +4,10 @@ import {useState, useEffect} from "react";
 import axios from "axios";
 import Cookies from 'js-cookie';
 import { Link } from 'react-router-dom';
+// import * as React from 'react';
+// import { Range } from 'react-range';
+
+// Tests on the range to be done later
 
 const CheckSpecialChar = (str, array) => {
     let result = false;
@@ -348,7 +352,6 @@ const ConOrLogIn = (tryConLogIn, setTryConLogIn, name, setName, email, setEmail,
                                         email: loginMail, //
                                         password: loginPass //
                                     })
-                                    console.log(newresponse.data)
                                         setFailedLog(0)
                                         Cookies.set("token", newresponse.data.token, {expires: 7})
                                         setTryConLogIn(0)
@@ -375,7 +378,7 @@ const ConOrLogIn = (tryConLogIn, setTryConLogIn, name, setName, email, setEmail,
 
 
 const Header = (props) => {
-    const {tryConLogIn, setTryConLogIn} = props;
+    const {tryConLogIn, setTryConLogIn, rank, setRank, setMin, setMax, setTitle} = props;
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -406,7 +409,7 @@ const Header = (props) => {
                     </div>
                     <div className='article-search'>
                         <FontAwesomeIcon icon="magnifying-glass" className='magnifying-class'></FontAwesomeIcon>
-                        <input type="text" id="article-name-search" placeholder='Rechercher des articles' />
+                        <input type="text" id="article-name-search" placeholder='Rechercher des articles' onKeyDown={(event) => {if(event.key === "Enter") {setTitle(event.target.value)}}}/>
                         <FontAwesomeIcon icon="xmark" className='xmark'></FontAwesomeIcon>
                     </div>
                 </div>
@@ -426,6 +429,24 @@ const Header = (props) => {
                 </div>
             </div>
             {ConOrLogIn(tryConLogIn, setTryConLogIn, name, setName, email, setEmail, password, setPassword, visible, setVisible, oldName, setOldName, oldEmail, setOldEmail, oldPassword, setOldPassword, newsletter, setNewsletter, tcs, setTcs, token, setToken, loginMail, setLoginMail, loginPass, setLoginPass, failedLog, setFailedLog)}
+            <div className='filter'>
+                <span>Trier par prix :</span>
+                {rank === 0 || rank === 2 ?
+                    <div className='up-cran' onClick={() => {setRank(1)}}>
+                        <div className='blue-cran'></div>
+                        <div className='cran-up'><FontAwesomeIcon icon="arrow-up"></FontAwesomeIcon></div>
+                    </div>
+                    :
+                    <div className='down-cran' onClick={() => {setRank(2)}}>
+                        <div className='blue-cran'></div>
+                        <div className='cran-down'><FontAwesomeIcon icon="arrow-down"></FontAwesomeIcon></div>
+                    </div>
+                }
+                <div>
+                    <span>Price min : </span><input type="number" placeholder='0' onChange={(event) => {setMin(event.target.value)}} className="price-filter"/>
+                    <span>Price max : </span><input type="number" placeholder='100' onChange={(event) => {setMax(event.target.value)}} className="price-filter"/>
+                </div>
+            </div>
         </header>
     )
 }
