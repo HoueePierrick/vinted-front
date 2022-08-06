@@ -136,7 +136,7 @@ const Home = (props) => {
         }
         // seepages = PagesTab(pageNum, pagescount, setPagMin, setPagMax);
         setNumOffers([PagesTab(pageNum, pagTot, setPagMin, setPagMax)]);
-    }, [pageLen, pageNum])
+    }, [pageLen, pageNum, initial.offers, pagTot])
 
     return (
         <div className="home">
