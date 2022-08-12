@@ -395,7 +395,7 @@ const Header = (props) => {
     useEffect(() => {
         let CookieToken = Cookies.get("token");
         setToken(CookieToken);
-      }, [token])
+      }, [token, setToken])
 
     return (
         <header>

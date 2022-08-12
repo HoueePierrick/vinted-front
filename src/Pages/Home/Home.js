@@ -137,7 +137,7 @@ const Home = (props) => {
         // seepages = PagesTab(pageNum, pagescount, setPagMin, setPagMax);
         setNumOffers([PagesTab(pageNum, pagTot, setPagMin, setPagMax)]);
         setCanSearch(1);
-    }, [pageLen, pageNum, initial.offers, pagTot])
+    }, [pageLen, pageNum, initial.offers, pagTot, setCanSearch])
 
     
 
