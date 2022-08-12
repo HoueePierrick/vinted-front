@@ -113,7 +113,7 @@ const PageViz = (pageNum, numoffers, setPageNum) => {
 
 
 const Home = (props) => {
-    const {data, pageNum, setPageNum, pageLen, setPageLen, initial} = props;
+    const {data, pageNum, setPageNum, pageLen, setPageLen, initial, setCanSearch} = props;
     const offers = data.offers;
     const [numoffers, setNumOffers] = useState(0);
     const [pagMin, setPagMin] = useState(0);
@@ -136,7 +136,10 @@ const Home = (props) => {
         }
         // seepages = PagesTab(pageNum, pagescount, setPagMin, setPagMax);
         setNumOffers([PagesTab(pageNum, pagTot, setPagMin, setPagMax)]);
+        setCanSearch(1);
     }, [pageLen, pageNum, initial.offers, pagTot])
+
+    
 
     return (
         <div className="home">

@@ -109,7 +109,7 @@ const DetailOffer = (array) => {
 }
 
 const Offer = (props) => {
-    const {data, setData, setIsLoading} = props
+    const {data, setData, setIsLoading, setCanSearch} = props
     useEffect(() => {
         const fetchdata = async () => {
           try {
@@ -121,6 +121,7 @@ const Offer = (props) => {
           }
         };
         fetchdata();
+        setCanSearch(0);
       })
     const id = useParams();
     const offers = data.offers;

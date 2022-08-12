@@ -1,0 +1,226 @@
+@font-face {
+    font-family: 'Test';
+    src: url('../../Fonts/Font.eot');
+    /* './Fonts/Font.eot' */
+    src: url('../../Fonts/Font.eot?#iefix') format('embedded-opentype'),
+        url('../../Fonts/Font.woff2') format('woff2'),
+        url('../../Fonts/Font.woff') format('woff'),
+        url('../../Fonts/Font.ttf') format('truetype'),
+        url('../../Fonts/Font.svg#Font') format('svg');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Font';
+    src: url('../../Fonts/Font_1.eot');
+    src: url('../../Fonts/Font_1.eot?#iefix') format('embedded-opentype'),
+        url('../../Fonts/Font_1.woff2') format('woff2'),
+        url('../../Fonts/Font_1.woff') format('woff'),
+        url('../../Fonts/Font_1.ttf') format('truetype'),
+        url('../../Fonts/Font_1.svg#Font') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+
+.sell-article {
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.sell-your-article {
+    margin-bottom: 15px;
+}
+
+.full-form {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.form-section {
+    background-color: white;
+    width: 100%;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    padding: 15px;
+    font-size: 12px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.form-pair {
+    width: 100%;
+    display: flex;
+}
+
+.form-pair:not(:last-child) {
+    border-bottom: 1px #DFE1E2 solid;
+}
+
+.form-label {
+    width: 50%;
+    margin: 15px 0px;
+}
+
+.form-input {
+    width: 50%;
+    border: none;
+    border-bottom: 1px #DFE1E2 solid;
+    box-sizing: border-box;
+    margin: 15px 0px;
+}
+
+.form-input::placeholder {
+    color: #DFE1E2;
+}
+
+#form-description {
+    height: 62px;
+    padding-bottom: 50px;
+    box-sizing: border-box;
+}
+
+#last-form-pair {
+    border: none;
+}
+
+.form-checkbox {
+    width: 100%;
+    display: flex;
+    box-sizing: border-box;
+    padding-left: calc(50% - 5px);
+    align-items: center;
+}
+
+input[type=checkbox] {
+    transform: scale(1.5);
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.add-class {
+    margin-top: 30px;
+    justify-content: end;
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.add {
+    border: none;
+    background-color: #43B2BA;
+    color: #BEEBEC;
+    font-size: 10px;
+    height: 26px;
+    width: 47px;
+    margin-left: calc(100% - 47px);
+    display: block;
+    font-family: inherit;
+    border-radius: 2px;
+    padding-left: 4px;
+    cursor: pointer;
+}
+
+.ul {
+    width: 105px;
+    padding: none;
+    color: red;
+    font-size: 12px;
+}
+
+.li {
+    margin-left: 12px;
+}
+
+.ImageUpload {
+    display: flex;
+    background-color: white;
+    width: 100%;
+    margin-bottom: 12px;
+    justify-content: center;
+    align-items: center;
+    height: 156px;
+}
+
+.paragraph {
+    border: 1px #DEE1E2 dashed;
+    height: calc(100% - 28px);
+    width: calc(100% - 28px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.second-paragraph {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.input-pics {
+    color: white;
+    margin: 5px calc(50% - 126px);
+    width: 124px;
+    position: relative;
+    left: 60px;
+}
+
+input[type=file]::-webkit-file-upload-button {
+    border: 1px solid #43B1BA;
+    background: white;
+    color: white;
+    height: 27px;
+    width: 124px;
+    cursor: pointer;
+    box-sizing: border-box;
+    padding-left: 25px;
+    font-size: 16px;
+    padding-top: 2px;
+}
+
+.ImageUpload button {
+    background-color: red;
+}
+
+.image-container {
+    height: 60px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    position: relative;
+    top: -10px;
+}
+
+.image-container > p {
+    margin: none;
+    position: relative;
+    top: -14px;
+}
+
+.uploaded-images {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    margin: 0px 5px;
+}
+
+.plus {
+    font-size: 20px;
+    left: calc(-50% + 4px + 60px);
+    top: 8px;
+    position: relative;
+    color:  #43B1BA;
+}
+
+.button-title {
+    color: #43B1BA;
+    font-size: 12px;
+    position: relative;
+    left: calc(-50% + 7px + 60px);
+    height: 14px;
+    top: 12px;
+}

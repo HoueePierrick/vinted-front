@@ -378,7 +378,7 @@ const ConOrLogIn = (tryConLogIn, setTryConLogIn, name, setName, email, setEmail,
 
 
 const Header = (props) => {
-    const {tryConLogIn, setTryConLogIn, rank, setRank, setMin, setMax, setTitle} = props;
+    const {tryConLogIn, setTryConLogIn, rank, setRank, setMin, setMax, setTitle, token, setToken, canSearch} = props;
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -388,7 +388,6 @@ const Header = (props) => {
     const [oldPassword, setOldPassword] = useState(0);
     const [newsletter, setNewsletter] = useState(false);
     const [tcs, setTcs] = useState(false);
-    const [token, setToken] = useState(null);
     const [loginMail, setLoginMail] = useState("");
     const [loginPass, setLoginPass] = useState("");
     const [failedLog, setFailedLog] = useState(0);
@@ -402,17 +401,18 @@ const Header = (props) => {
         <header>
             <Link to="/" className='Vinted'><img src={require("../../Content/Vinted_logo.png")} alt="Vinted's logo"/></Link>
             <div className='rest-header'>
-                <div className="search">
-                    <div className="categsearch">
-                        <span>Articles</span>
-                        <FontAwesomeIcon icon="sort-down" className='sort-down'></FontAwesomeIcon>
+                    <div className="search">
+                        <div className="categsearch">
+                            <span>Articles</span>
+                            <FontAwesomeIcon icon="sort-down" className='sort-down'></FontAwesomeIcon>
+                        </div>
+                            <div className='article-search'>
+                                <FontAwesomeIcon icon="magnifying-glass" className='magnifying-class'></FontAwesomeIcon>
+                                    <input type="text" id="article-name-search" placeholder='Rechercher des articles' onKeyDown={(event) => {if(event.key === "Enter") {setTitle(event.target.value)}}}/>
+                                
+                                <FontAwesomeIcon icon="xmark" className='xmark'></FontAwesomeIcon>
+                            </div>
                     </div>
-                    <div className='article-search'>
-                        <FontAwesomeIcon icon="magnifying-glass" className='magnifying-class'></FontAwesomeIcon>
-                        <input type="text" id="article-name-search" placeholder='Rechercher des articles' onKeyDown={(event) => {if(event.key === "Enter") {setTitle(event.target.value)}}}/>
-                        <FontAwesomeIcon icon="xmark" className='xmark'></FontAwesomeIcon>
-                    </div>
-                </div>
                 <div className='sec-contain'>
                     {
                         !token ? 
@@ -420,7 +420,7 @@ const Header = (props) => {
                         :
                         <button className='disconnect' onClick={() => {Cookies.remove("token"); setToken(null)}}>Se déconnecter</button> 
                     }
-                    <button className='sell-now'>Vends maintenant</button>
+                    <Link to={"/publish"}><button className='sell-now'>Vends maintenant</button></Link>
                     <button className='question'><span>?</span></button>
                     <div className='language'>
                         <span>FR</span>
@@ -429,24 +429,26 @@ const Header = (props) => {
                 </div>
             </div>
             {ConOrLogIn(tryConLogIn, setTryConLogIn, name, setName, email, setEmail, password, setPassword, visible, setVisible, oldName, setOldName, oldEmail, setOldEmail, oldPassword, setOldPassword, newsletter, setNewsletter, tcs, setTcs, token, setToken, loginMail, setLoginMail, loginPass, setLoginPass, failedLog, setFailedLog)}
-            <div className='filter'>
-                <span>Trier par prix :</span>
-                {rank === 0 || rank === 2 ?
-                    <div className='up-cran' onClick={() => {setRank(1)}}>
-                        <div className='blue-cran'></div>
-                        <div className='cran-up'><FontAwesomeIcon icon="arrow-up"></FontAwesomeIcon></div>
+            {canSearch === 1 &&
+                <div className='filter'>
+                    <span>Trier par prix :</span>
+                    {rank === 0 || rank === 2 ?
+                        <div className='up-cran' onClick={() => {setRank(1)}}>
+                            <div className='blue-cran'></div>
+                            <div className='cran-up'><FontAwesomeIcon icon="arrow-up"></FontAwesomeIcon></div>
+                        </div>
+                        :
+                        <div className='down-cran' onClick={() => {setRank(2)}}>
+                            <div className='blue-cran'></div>
+                            <div className='cran-down'><FontAwesomeIcon icon="arrow-down"></FontAwesomeIcon></div>
+                        </div>
+                    }
+                    <div>
+                        <span>Price min : </span><input type="number" placeholder='0' onChange={(event) => {setMin(event.target.value)}} className="price-filter"/>
+                        <span>Price max : </span><input type="number" placeholder='100' onChange={(event) => {setMax(event.target.value)}} className="price-filter"/>
                     </div>
-                    :
-                    <div className='down-cran' onClick={() => {setRank(2)}}>
-                        <div className='blue-cran'></div>
-                        <div className='cran-down'><FontAwesomeIcon icon="arrow-down"></FontAwesomeIcon></div>
-                    </div>
-                }
-                <div>
-                    <span>Price min : </span><input type="number" placeholder='0' onChange={(event) => {setMin(event.target.value)}} className="price-filter"/>
-                    <span>Price max : </span><input type="number" placeholder='100' onChange={(event) => {setMax(event.target.value)}} className="price-filter"/>
                 </div>
-            </div>
+            }
         </header>
     )
 }

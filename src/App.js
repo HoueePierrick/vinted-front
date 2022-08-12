@@ -3,11 +3,13 @@ import axios from "axios";
 import {useState, useEffect} from "react";
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import {library} from '@fortawesome/fontawesome-svg-core';
-import {faSortDown, faMagnifyingGlass, faXmark, faInfo, faEyeSlash, faEye, faCheck, faArrowUp, faArrowDown, faChevronLeft, faChevronRight} from '@fortawesome/free-solid-svg-icons';
+import {faSortDown, faMagnifyingGlass, faXmark, faInfo, faEyeSlash, faEye, faCheck, faArrowUp, faArrowDown, faChevronLeft, faChevronRight, faPlus} from '@fortawesome/free-solid-svg-icons';
 import Header from './Components/Header/Header';
 import Home from './Pages/Home/Home';
 import Offer from './Pages/Offer/Offer';
-library.add(faSortDown, faMagnifyingGlass, faXmark, faInfo, faEyeSlash, faEye, faCheck, faArrowUp, faArrowDown, faChevronLeft, faChevronRight);
+import Publish from './Pages/Publish/Publish';
+
+library.add(faSortDown, faMagnifyingGlass, faXmark, faInfo, faEyeSlash, faEye, faCheck, faArrowUp, faArrowDown, faChevronLeft, faChevronRight, faPlus);
 
 function App() {
   const [data, setData] = useState(null);
@@ -19,7 +21,9 @@ function App() {
   const [max, setMax] = useState(0);
   const [pageNum, setPageNum] = useState(0);
   const [pageLen, setPageLen] = useState(40);
-  const [initial, setInitial] = useState(null)
+  const [initial, setInitial] = useState(null);
+  const [canSearch, setCanSearch] = useState(1);
+  const [token, setToken] = useState(null);
 
   const request = (title, rank, min, max, pageNum, pageLen) => {
     let titlesearch = "";
@@ -162,11 +166,12 @@ function App() {
     :
     <>
     <Router>
-      <Header tryConLogIn={tryConLogIn} setTryConLogIn={setTryConLogIn} rank={rank} setRank={setRank} setMin={setMin} setMax={setMax} setTitle={setTitle}></Header>
+      <Header tryConLogIn={tryConLogIn} setTryConLogIn={setTryConLogIn} rank={rank} setRank={setRank} setMin={setMin} setMax={setMax} setTitle={setTitle} canSearch={canSearch} token={token} setToken={setToken}></Header>
       <div className='head-placeholder'></div>
       <Routes>
-        <Route path='/' element={<Home data={data} pageNum={pageNum} setPageNum={setPageNum} pageLen={pageLen} setPageLen={setPageLen} initial={initial}/>}></Route>
-        <Route path="/offer/:id" element={<Offer data={data} setData={setData} isLoading={isLoading} setIsLoading={setIsLoading}></Offer>}></Route>
+        <Route path='/' element={<Home data={data} pageNum={pageNum} setPageNum={setPageNum} pageLen={pageLen} setPageLen={setPageLen} initial={initial} setCanSearch={setCanSearch}/>}></Route>
+        <Route path="/offer/:id" element={<Offer data={data} setData={setData} isLoading={isLoading} setIsLoading={setIsLoading} setCanSearch={setCanSearch}></Offer>}></Route>
+        <Route path='/publish' element={<Publish setCanSearch={setCanSearch} token={token} ></Publish>}></Route>
       </Routes>
     </Router>
     </>
