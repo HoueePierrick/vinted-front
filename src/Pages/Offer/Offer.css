@@ -16,6 +16,7 @@ body {
 .product-carroussel {
     width: min(60%, 600px);
     height: 500px;
+    z-index: 1;
 }
 
 .product-pic {

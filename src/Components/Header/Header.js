@@ -187,7 +187,7 @@ const FailedLogIn = (failedLog) => {
     } 
 }
 
-const ConOrLogIn = (tryConLogIn, setTryConLogIn, name, setName, email, setEmail, password, setPassword, visible, setVisible, oldName, setOldName, oldEmail, setOldEmail, oldPassword, setOldPassword, newsletter, setNewsletter, tcs, setTcs, token, setToken, loginMail, setLoginMail, loginPass, setLoginPass, failedLog, setFailedLog) => {
+const ConOrLogIn = (tryConLogIn, setTryConLogIn, name, setName, email, setEmail, password, setPassword, visible, setVisible, oldName, setOldName, oldEmail, setOldEmail, oldPassword, setOldPassword, newsletter, setNewsletter, tcs, setTcs, setToken, loginMail, setLoginMail, loginPass, setLoginPass, failedLog, setFailedLog, setUsrCourriel) => {
     if(tryConLogIn === 1) {
         return (
             <>
@@ -273,9 +273,12 @@ const ConOrLogIn = (tryConLogIn, setTryConLogIn, name, setName, email, setEmail,
                                         newsletter: newsletter //
                                     })
                                     Cookies.set("token", response.data.token, {expires: 7})
+                                    Cookies.set("email", response.data.email, {expires: 7})
                                     setTryConLogIn(0) // set it at 3 for "logged-in"
                                     let CookieToken = Cookies.get("token");
+                                    let CookieEmail = Cookies.get("email")
                                     setToken(CookieToken);
+                                    setUsrCourriel(CookieEmail);
                                   } catch (error) {
                                     console.log(error.response)
                                   }
@@ -349,14 +352,19 @@ const ConOrLogIn = (tryConLogIn, setTryConLogIn, name, setName, email, setEmail,
                             if(loginMail.length > 0 && loginPass.length > 0) {
                                 try {
                                     const newresponse = await axios.post("https://lereacteur-vinted-api.herokuapp.com/user/login", {
-                                        email: loginMail, //
-                                        password: loginPass //
+                                        email: loginMail,
+                                        password: loginPass
                                     })
                                         setFailedLog(0)
                                         Cookies.set("token", newresponse.data.token, {expires: 7})
                                         setTryConLogIn(0)
                                         let CookieToken = Cookies.get("token");
                                         setToken(CookieToken);
+                                        if(newresponse.data.token) {
+                                            Cookies.set("email", loginMail, {expires: 7})
+                                            let CookieEmail = Cookies.get("email");
+                                            setUsrCourriel(CookieEmail);
+                                        }
                                   } catch (error) {
                                     console.log(error.response)
                                     setFailedLog(1)
@@ -378,7 +386,7 @@ const ConOrLogIn = (tryConLogIn, setTryConLogIn, name, setName, email, setEmail,
 
 
 const Header = (props) => {
-    const {tryConLogIn, setTryConLogIn, rank, setRank, setMin, setMax, setTitle, token, setToken, canSearch} = props;
+    const {tryConLogIn, setTryConLogIn, rank, setRank, setMin, setMax, setTitle, token, setToken, canSearch, usrCourriel, setUsrCourriel} = props;
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -394,8 +402,10 @@ const Header = (props) => {
 
     useEffect(() => {
         let CookieToken = Cookies.get("token");
+        let CookieEmail = Cookies.get("email")
         setToken(CookieToken);
-      }, [token, setToken])
+        setUsrCourriel(CookieEmail)
+      }, [token, setToken, usrCourriel, setUsrCourriel])
 
     return (
         <header>
@@ -418,7 +428,7 @@ const Header = (props) => {
                         !token ? 
                         <button className='inscr-connect' onClick={() => {setTryConLogIn(1)}}>S'inscrire | Se connecter</button> 
                         :
-                        <button className='disconnect' onClick={() => {Cookies.remove("token"); setToken(null)}}>Se déconnecter</button> 
+                        <button className='disconnect' onClick={() => {Cookies.remove("token"); Cookies.remove("email"); setToken(null); setUsrCourriel("")}}>Se déconnecter</button> 
                     }
                     <Link to={"/publish"}><button className='sell-now'>Vends maintenant</button></Link>
                     <button className='question'><span>?</span></button>
@@ -428,7 +438,7 @@ const Header = (props) => {
                     </div>
                 </div>
             </div>
-            {ConOrLogIn(tryConLogIn, setTryConLogIn, name, setName, email, setEmail, password, setPassword, visible, setVisible, oldName, setOldName, oldEmail, setOldEmail, oldPassword, setOldPassword, newsletter, setNewsletter, tcs, setTcs, token, setToken, loginMail, setLoginMail, loginPass, setLoginPass, failedLog, setFailedLog)}
+            {ConOrLogIn(tryConLogIn, setTryConLogIn, name, setName, email, setEmail, password, setPassword, visible, setVisible, oldName, setOldName, oldEmail, setOldEmail, oldPassword, setOldPassword, newsletter, setNewsletter, tcs, setTcs, setToken, loginMail, setLoginMail, loginPass, setLoginPass, failedLog, setFailedLog, setUsrCourriel)}
             {canSearch === 1 &&
                 <div className='filter'>
                     <span>Trier par prix :</span>

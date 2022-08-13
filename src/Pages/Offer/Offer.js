@@ -1,5 +1,5 @@
 import "./Offer.css";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import CorrectNum from "../../Components/CorrectNum";
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
@@ -109,7 +109,8 @@ const DetailOffer = (array) => {
 }
 
 const Offer = (props) => {
-    const {data, setData, setIsLoading, setCanSearch} = props
+    const {data, setData, setIsLoading, setCanSearch, setTryConLogIn, token} = props;
+    const navigate = useNavigate();
     useEffect(() => {
         const fetchdata = async () => {
           try {
@@ -146,7 +147,14 @@ const Offer = (props) => {
                     }
                     <span>{theOffer.owner.account.username}</span>
                 </div>
-                <button className="buy"><span>Acheter</span></button>
+                <button className="buy" onClick={(e) => {
+                    if(token) {
+                        navigate("/payment", {state: {title: theOffer.product_name, price: theOffer.product_price}})
+                    } else {
+                        setTryConLogIn(1)
+                    }
+                    }
+                    }><span>Acheter</span></button>
             </div>
         </div>
     )

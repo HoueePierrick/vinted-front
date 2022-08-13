@@ -8,6 +8,7 @@ import Header from './Components/Header/Header';
 import Home from './Pages/Home/Home';
 import Offer from './Pages/Offer/Offer';
 import Publish from './Pages/Publish/Publish';
+import Payment from './Pages/Payment/Payment';
 
 library.add(faSortDown, faMagnifyingGlass, faXmark, faInfo, faEyeSlash, faEye, faCheck, faArrowUp, faArrowDown, faChevronLeft, faChevronRight, faPlus);
 
@@ -24,6 +25,7 @@ function App() {
   const [initial, setInitial] = useState(null);
   const [canSearch, setCanSearch] = useState(1);
   const [token, setToken] = useState(null);
+  const [usrCourriel, setUsrCourriel] = useState("")
 
   const request = (title, rank, min, max, pageNum, pageLen) => {
     let titlesearch = "";
@@ -166,12 +168,13 @@ function App() {
     :
     <>
     <Router>
-      <Header tryConLogIn={tryConLogIn} setTryConLogIn={setTryConLogIn} rank={rank} setRank={setRank} setMin={setMin} setMax={setMax} setTitle={setTitle} canSearch={canSearch} token={token} setToken={setToken}></Header>
+      <Header tryConLogIn={tryConLogIn} setTryConLogIn={setTryConLogIn} rank={rank} setRank={setRank} setMin={setMin} setMax={setMax} setTitle={setTitle} canSearch={canSearch} token={token} setToken={setToken} usrCourriel={usrCourriel} setUsrCourriel={setUsrCourriel}></Header>
       <div className='head-placeholder'></div>
       <Routes>
         <Route path='/' element={<Home data={data} pageNum={pageNum} setPageNum={setPageNum} pageLen={pageLen} setPageLen={setPageLen} initial={initial} setCanSearch={setCanSearch}/>}></Route>
-        <Route path="/offer/:id" element={<Offer data={data} setData={setData} isLoading={isLoading} setIsLoading={setIsLoading} setCanSearch={setCanSearch}></Offer>}></Route>
-        <Route path='/publish' element={<Publish setCanSearch={setCanSearch} token={token} ></Publish>}></Route>
+        <Route path="/offer/:id" element={<Offer data={data} setData={setData} isLoading={isLoading} setIsLoading={setIsLoading} setCanSearch={setCanSearch} setTryConLogIn={setTryConLogIn} token={token}></Offer>}></Route>
+        <Route path='/publish' element={<Publish setCanSearch={setCanSearch} token={token}></Publish>}></Route>
+        <Route path='/payment' element={<Payment usrCourriel={usrCourriel}></Payment>}></Route>
       </Routes>
     </Router>
     </>
